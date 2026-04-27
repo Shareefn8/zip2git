@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 40 10% 95%;
+
+    --card: 220 18% 7%;
+    --card-foreground: 40 10% 95%;
+
+    --popover: 220 18% 7%;
+    --popover-foreground: 40 10% 95%;
+
+    --primary: 38 92% 55%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 220 14% 14%;
+    --secondary-foreground: 40 10% 90%;
+
+    --muted: 220 14% 11%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 160 60% 45%;
+    --accent-foreground: 220 20% 4%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 40 10% 95%;
+
+    --border: 220 14% 14%;
+    --input: 220 14% 14%;
+    --ring: 38 92% 55%;
+
+    --radius: 0.75rem;
+
+    --glow-primary: 0 0 40px hsl(38 92% 55% / 0.2);
+    --glow-accent: 0 0 40px hsl(160 60% 45% / 0.2);
+
+    --sidebar-background: 220 20% 3%;
+    --sidebar-foreground: 40 10% 95%;
+    --sidebar-primary: 38 92% 55%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 14% 12%;
+    --sidebar-accent-foreground: 40 10% 95%;
+    --sidebar-border: 220 14% 14%;
+    --sidebar-ring: 38 92% 55%;
+  }
+
+  :root.light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 160 60% 45%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 38 92% 50%;
+
+    --glow-primary: 0 0 20px hsl(38 92% 50% / 0.1);
+    --glow-accent: 0 0 20px hsl(160 60% 45% / 0.1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased transition-colors duration-300;
+    font-family: 'Inter', sans-serif;
+  }
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card border border-border/60 rounded-lg;
+  }
+  .glow-button {
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .text-gradient {
+    @apply text-primary;
+  }
+  .text-gradient-cool {
+    @apply text-accent;
+  }
+  .security-badge {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium;
+    background: hsl(var(--accent) / 0.10);
+    color: hsl(var(--accent));
+    border: 1px solid hsl(var(--accent) / 0.25);
+  }
+  .upload-zone {
+    @apply border-2 border-dashed border-border rounded-xl p-5 sm:p-8 transition-colors cursor-pointer bg-card;
+  }
+  .upload-zone:hover, .upload-zone.active {
+    @apply border-primary bg-primary/5;
+  }
+  @media (max-width: 640px) {
+    .upload-zone {
+      @apply p-4;
+    }
+  }
+  .file-tree-item {
+    @apply flex items-center gap-1.5 px-2 py-1.5 rounded-md text-xs sm:text-sm font-mono text-muted-foreground hover:bg-secondary/50 hover:text-foreground transition-colors min-w-0 overflow-hidden;
+  }
+  .file-tree-item > div {
+    @apply flex items-center gap-1.5 min-w-0 overflow-hidden;
+  }
+  .feature-card {
+    @apply bg-card border border-border/60 rounded-lg p-3 transition-colors;
+  }
+  .feature-card:hover {
+    @apply border-primary/40;
+  }
+  .section-heading {
+    @apply font-display text-lg sm:text-xl lg:text-2xl font-bold tracking-tight;
+  }
+  .section-subtext {
+    @apply text-muted-foreground text-xs sm:text-sm max-w-2xl;
+  }
+  .quick-icon-card {
+    @apply flex flex-col items-center justify-center gap-1 rounded-lg border border-border/60 bg-card px-1 py-2 sm:py-3 text-center transition-colors hover:border-primary/40 hover:bg-primary/5;
+  }
+  .quick-icon-bubble {
+    @apply flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-md bg-primary/10 text-primary;
+  }
+  .quick-icon-label {
+    @apply text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-foreground;
+  }
+  /* New smart quick-action card — left-aligned with icon + label + sublabel */
+  .quick-action-card {
+    @apply flex items-center gap-2.5 sm:gap-3 rounded-xl border border-border/60 bg-card px-3 py-2.5 sm:px-3.5 sm:py-3 text-left transition-all hover:border-primary/40 hover:bg-primary/5 hover:shadow-md hover:shadow-primary/10 active:scale-[0.98] min-w-0;
+  }
+  .quick-action-bubble {
+    @apply flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg overflow-hidden;
+  }
+  .quick-action-text {
+    @apply flex flex-col min-w-0 flex-1;
+  }
+  .quick-action-label {
+    @apply text-xs sm:text-sm font-semibold text-foreground leading-tight truncate;
+  }
+  .quick-action-sub {
+    @apply text-[10px] sm:text-[11px] text-muted-foreground leading-tight truncate mt-0.5;
+  }
+  /* Alternating icon alignment for 2-col cards */
+  .alt-card-icon-even { @apply ml-auto; }
+  .alt-card-icon-odd  { @apply mr-auto; }
+  .alt-text-even { @apply text-right; }
+  .alt-text-odd  { @apply text-left; }
+
+  /* Two-icon card header — main icon on one side, action chevron on opposite side */
+  .card-icon-row {
+    @apply mb-2 sm:mb-3 flex items-center justify-between gap-2;
+  }
+  .card-icon-row.flip { @apply flex-row-reverse; }
+  .card-main-icon {
+    @apply flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg shrink-0;
+  }
+  .card-side-icon {
+    @apply flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-muted/40 text-muted-foreground/70 group-hover:bg-primary/10 group-hover:text-primary shrink-0 transition-colors;
+  }
+
+  /* Upload card hero — vibrant unique design */
+  .upload-hero-icon {
+    @apply relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 border border-primary/30;
+  }
+  .upload-hero-icon::before {
+    content: '';
+    @apply absolute -inset-1 rounded-2xl border-2 border-dashed border-primary/40 opacity-60;
+    animation: upload-spin 12s linear infinite;
+  }
+  .upload-pulse-dot {
+    @apply absolute h-3 w-3 rounded-full bg-primary;
+    animation: upload-pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes upload-spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes upload-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.6); opacity: 0.4; }
+  }
+
+  /* Sponsor marquee — auto-scrolling carousel */
+  .marquee-container { mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); }
+  .marquee-track {
+    width: max-content;
+    animation: marquee-scroll 40s linear infinite;
+  }
+  .marquee-container:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* Unique brand mark — Z2G monogram */
+  .brand-mark {
+    @apply relative inline-flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    box-shadow: 0 4px 12px hsl(var(--primary) / 0.25);
+  }
+  .brand-mark::before {
+    content: '';
+    @apply absolute inset-0 opacity-30;
+    background-image: radial-gradient(circle at 30% 20%, white 0%, transparent 50%);
+  }
+  .brand-mark span {
+    @apply relative z-10 font-display font-extrabold text-white text-base tracking-tighter;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+}
+
+@layer utilities {
+  .bg-grid { background-image: none; }
+  .bg-hero-glow { background: none; }
+  .animate-float { animation: none; }
+}
+
+.ad-slot {
+  @apply rounded-lg border border-border/40 bg-card overflow-hidden min-h-[60px] flex items-center justify-center text-xs text-muted-foreground;
+}

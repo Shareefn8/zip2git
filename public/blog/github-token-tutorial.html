@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GitHub Personal Access Token — Complete 2026 Tutorial | Zip2Git</title>
+<meta name="description" content="How to create, scope, and safely use a GitHub Personal Access Token (PAT) in 2026. Step-by-step screenshots, classic vs fine-grained tokens explained, security best practices.">
+<meta name="keywords" content="github personal access token, github pat, github token tutorial, ghp_ token, github_pat_, zip2git">
+<meta name="author" content="CodeByShareef">
+<link rel="canonical" href="https://zip2git.online/blog/github-token-tutorial.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub Personal Access Token — Complete 2026 Tutorial">
+<meta property="og:description" content="Create and safely use a GitHub PAT in under 2 minutes.">
+<meta property="og:url" content="https://zip2git.online/blog/github-token-tutorial.html">
+<meta property="og:image" content="https://zip2git.online/og-blog.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GitHub Personal Access Token — Complete 2026 Tutorial",
+  "description": "How to create, scope, and safely use a GitHub Personal Access Token in 2026.",
+  "author": { "@type": "Person", "name": "CodeByShareef" },
+  "publisher": { "@type": "Organization", "name": "Zip2Git", "logo": { "@type": "ImageObject", "url": "https://zip2git.online/logo.png" } },
+  "datePublished": "2026-04-05",
+  "dateModified": "2026-04-26",
+  "mainEntityOfPage": "https://zip2git.online/blog/github-token-tutorial.html",
+  "image": "https://zip2git.online/og-blog.jpg"
+}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0c10;color:#e7e9ec;line-height:1.7;padding:24px 16px}
+.wrap{max-width:760px;margin:0 auto}
+header{text-align:center;padding:24px 0;border-bottom:1px solid #1f242c;margin-bottom:32px}
+header a.brand{display:inline-flex;align-items:baseline;gap:4px;font-size:24px;font-weight:800;text-decoration:none;color:#fff}
+header a.brand .arrow,header a.brand .git{color:#f5a623}
+nav{margin-top:12px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+nav a{color:#8a93a3;text-decoration:none;font-size:14px}
+nav a:hover{color:#f5a623}
+h1{font-size:30px;line-height:1.25;margin-bottom:12px;color:#fff}
+.meta{color:#8a93a3;font-size:13px;margin-bottom:24px}
+h2{margin-top:30px;margin-bottom:12px;color:#f5a623;font-size:22px}
+h3{margin-top:24px;margin-bottom:8px;color:#fff;font-size:17px}
+p{margin-bottom:14px;color:#cdd2da}
+ol,ul{margin:0 0 16px 24px;color:#cdd2da}
+li{margin-bottom:8px}
+code{background:#1a1f27;color:#7be0a8;padding:2px 6px;border-radius:4px;font-size:14px}
+.cta{display:inline-block;background:linear-gradient(135deg,#f5a623,#2eb786);color:#0a0c10;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;margin:16px 0}
+.box{background:#11161e;border:1px solid #1f242c;border-left:3px solid #f5a623;padding:14px 18px;border-radius:8px;margin:18px 0}
+.warn{border-left-color:#ef5350;background:#1f1112}
+footer{margin-top:48px;padding-top:24px;border-top:1px solid #1f242c;text-align:center;color:#8a93a3;font-size:13px}
+footer a{color:#f5a623;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="brand" href="/">Zip<span class="arrow">→</span><span class="git">Git</span></a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/tools">Tools</a>
+    <a href="/blog">Blog</a>
+    <a href="/faq">FAQ</a>
+    <a href="/about">About</a>
+  </nav>
+</header>
+
+<main>
+  <h1>GitHub Personal Access Token — Complete 2026 Tutorial</h1>
+  <p class="meta">By <strong>CodeByShareef</strong> · Updated April 2026 · 5 min read</p>
+
+  <p>A GitHub <strong>Personal Access Token (PAT)</strong> is the modern replacement for password-based git authentication. Whether you're using <a href="/" style="color:#f5a623">Zip2Git</a> to push a ZIP, automating with curl, or connecting a third-party tool — you'll need one.</p>
+
+  <a class="cta" href="https://github.com/settings/tokens" target="_blank" rel="noopener">→ Open GitHub Token Settings</a>
+
+  <h2>Classic vs Fine-Grained — which one?</h2>
+  <p>GitHub offers two flavors:</p>
+  <ul>
+    <li><strong>Classic tokens</strong> (<code>ghp_…</code>): broad scopes, work everywhere, simplest to set up. Best for personal scripts and tools like Zip2Git.</li>
+    <li><strong>Fine-grained tokens</strong> (<code>github_pat_…</code>): per-repository permissions, mandatory expiry, future-proof. Best for production automation.</li>
+  </ul>
+
+  <h2>Create a Classic PAT (Recommended for Zip2Git)</h2>
+  <ol>
+    <li>Go to <a href="https://github.com/settings/tokens" target="_blank" rel="noopener" style="color:#f5a623">github.com/settings/tokens</a></li>
+    <li>Click <strong>Generate new token</strong> → <strong>Generate new token (classic)</strong>.</li>
+    <li>Give it a clear name like <code>zip2git-uploader</code>.</li>
+    <li>Set an <strong>Expiration</strong> (90 days is a good balance).</li>
+    <li>Under <strong>Select scopes</strong>, check only <code>repo</code> (full control of private repositories).</li>
+    <li>Scroll down and click <strong>Generate token</strong>.</li>
+    <li>Copy the token immediately — GitHub will never show it again.</li>
+  </ol>
+
+  <div class="box warn">
+    <strong>⚠️ Treat your token like a password.</strong> Never commit it to a repo, never share it on Discord, never paste it into untrusted tools. Zip2Git keeps it in browser memory only — but you should still rotate it every 90 days.
+  </div>
+
+  <h2>Using the token in Zip2Git</h2>
+  <ol>
+    <li>Open <a href="/" style="color:#f5a623">zip2git.online</a>.</li>
+    <li>Click <strong>Connect Now</strong> in the GitHub Token card.</li>
+    <li>Paste your <code>ghp_…</code> token. The token is held in <em>React state only</em> — it's gone the moment you close the tab.</li>
+    <li>Upload your ZIP, name your repo, hit Push. ✅</li>
+  </ol>
+
+  <h2>Token security best practices</h2>
+  <ul>
+    <li><strong>One token per tool.</strong> If a tool is compromised, you only revoke that one token.</li>
+    <li><strong>Use expiry dates.</strong> Never create non-expiring tokens unless absolutely required.</li>
+    <li><strong>Minimum scope.</strong> Only grant <code>repo</code> if you need private repos. Otherwise <code>public_repo</code> is enough.</li>
+    <li><strong>Revoke unused tokens.</strong> Visit <a href="https://github.com/settings/tokens" target="_blank" rel="noopener" style="color:#f5a623">your tokens page</a> monthly and delete what you don't recognize.</li>
+  </ul>
+
+  <h2>Frequently asked</h2>
+  <h3>Does Zip2Git store my token?</h3>
+  <p><strong>No.</strong> The token lives in React state in your browser. Refresh the page or close the tab → it's gone. Inspect the network tab if you'd like to verify.</p>
+
+  <h3>What if my token gets leaked?</h3>
+  <p>Go to <a href="https://github.com/settings/tokens" target="_blank" rel="noopener" style="color:#f5a623">github.com/settings/tokens</a>, click your token, and hit <strong>Delete</strong>. Generate a new one. GitHub also auto-revokes tokens that get pushed to public repos.</p>
+
+  <a class="cta" href="/">→ Use Zip2Git Now</a>
+</main>
+
+<footer>
+  <p>Built with ❤️ by <a href="mailto:codebyshareef@gmail.com">CodeByShareef</a> · <a href="/">zip2git.online</a></p>
+  <p style="margin-top:8px"><a href="/blog/zip-to-github-quick-guide.html">← ZIP to GitHub Guide</a></p>
+</footer>
+</div>
+</body>
+</html>
